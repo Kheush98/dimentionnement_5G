@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G Small Cell Coverage Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Calcul de la distance de couverture des cellules 5G</h1>
+        <form id="coverageForm">
+            <label for="Pt">Puissance de Transmission (P<sub>t</sub>) en dBm:</label>
+            <input type="number" id="Pt" name="Pt" required>
+            
+            <label for="Gt">Gain de l'Antenne de la Station de Base (G<sub>t</sub>) en dBi:</label>
+            <input type="number" id="Gt" name="Gt" required>
+            
+            <label for="Gr">Gain de l'Antenne de l'Utilisateur (G<sub>r</sub>) en dBi:</label>
+            <input type="number" id="Gr" name="Gr" required>
+            
+            <label for="Pr">Sensibilité du Récepteur (P<sub>r</sub>) en dBm:</label>
+            <input type="number" id="Pr" name="Pr" required>
+            
+            <label for="frequency">Fréquence de Transmission (f) en MHz:</label>
+            <input type="number" id="frequency" name="frequency" required>
+            
+            <label for="hb">Hauteur de l'Antenne de la Station de Base (h<sub>b</sub>) en mètres:</label>
+            <input type="number" id="hb" name="hb" required>
+            
+            <label for="hm">Hauteur de l'Antenne de l'Utilisateur (h<sub>m</sub>) en mètres:</label>
+            <input type="number" id="hm" name="hm" required>
+            
+            <label for="environment">Zone:</label>
+            <select id="environment" name="environment" required>
+                <option value="Urban">Urbain</option>
+                <option value="Rural">Rural</option>
+            </select>
+            
+            <label for="model">Modèle de Propagation:</label>
+            <select id="model" name="model" required>
+                <option value="FreeSpace">Espace Libre</option>
+                <option value="HataUrban">Hata Urbain</option>
+            </select>
+            
+            <button type="button" onclick="calculateCoverage()">Calculer la Couverture</button>
+        </form>
+        
+        <div id="results">
+            <h2>Résultats:</h2>
+            <p id="coverageResult"></p>
+        </div>
+        
+        <div id="map" style="height: 500px;"></div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
