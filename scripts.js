@@ -1,5 +1,6 @@
 let map;
 let userMarker;
+let formVisible = true;
 
 document.addEventListener("DOMContentLoaded", () => {
     map = L.map('map').fitWorld();
@@ -88,4 +89,16 @@ function displayMap(lat, lon, radius) {
         fillOpacity: 0.5,
         radius: radius
     }).addTo(map);
+}
+
+function toggleForm() {
+    const form = document.getElementById('coverageForm');
+    formVisible = !formVisible;
+    if (formVisible) {
+        form.classList.remove('hidden');
+        document.getElementById('toggleButton').innerText = "Hide Form";
+    } else {
+        form.classList.add('hidden');
+        document.getElementById('toggleButton').innerText = "Show Form";
+    }
 }
